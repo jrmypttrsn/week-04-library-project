@@ -21,6 +21,7 @@ end
 # New
 get '/books/new' do
   @book = Book.new
+  @libraries = Library.all
   erb :books_new
 end
 
@@ -46,14 +47,14 @@ end
 
 get '/books/:id/edit' do
   @book = Book.find_by_id(params['id'])
-  @researchers = Library.all
+  @libraries = Library.all
   erb :books_edit
 end
 
 post '/books/:id' do
   binding.pry
   @book = Book.find_by_id(params['id'])
-  @researcher = Library.find_by_id(params['library_id'])
+  @library = Library.find_by_id(params['library_id'])
 
   if @book.update_attributes(title: params['title'], 
                                author: params['author'],
