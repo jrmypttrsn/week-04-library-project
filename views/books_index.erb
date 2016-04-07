@@ -2,7 +2,7 @@
 
 <ol>
   <% @books.each do |book| %>
-    <li><a href="/books/<%= book.id %>"><%= book.title %><%= book.author %><%= book.ISBN %></a></li>
+    <li><a href="/books/<%= book.id %>"><%= book.title %><%= book.author %><%= book.isbn %></a></li>
   <% end %>
 </ol>
 

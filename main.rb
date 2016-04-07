@@ -57,7 +57,7 @@ post '/books/:id' do
 
   if @book.update_attributes(title: params['title'], 
                                author: params['author'],
-                               ISBN: @ISBN)
+                               ISBN: @isbn)
     redirect to("/books/#{@book.id}")
   else
     erb :books_edit
