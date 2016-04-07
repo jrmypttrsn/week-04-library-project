@@ -1,0 +1,14 @@
+
+<% if @book %>
+  <h1><%= @book.title %></h1>
+
+  <p><em>Author:</em> <%= @book.author %></p>
+  <p><em>ISBN:</em> <%= @book.ISBN %></p>
+  <p><em>Library:</em> <%= @book.library ? @book.library : "No Library" %></p>
+  <p><a href="/books/<%= @book.id %>/edit">Edit</a></p>
+<% else %>
+  <p>No book of that ID exists</p>
+<% end %>
+
+
+<p><a href="/books">Back to All Books</a></p>

@@ -1,0 +1,9 @@
+<h1>Books Index</h1>
+
+<ol>
+  <% @books.each do |book| %>
+    <li><a href="/books/<%= book.id %>"><%= book.title %><%= book.author %><%= book.ISBN %></a></li>
+  <% end %>
+</ol>
+
+<p><a href="/books/new">New Book</a></p>
