@@ -8,7 +8,6 @@ require_relative "lib/library.rb"
 require_relative "lib/patron.rb"
 require_relative "lib/staff_member.rb"
 
-binding.pry
 
 ######################################### BOOKS #########################################
 
@@ -52,16 +51,16 @@ get '/books/:id/edit' do
 end
 
 post '/books/:id' do
-  binding.pry
   @book = Book.find_by_id(params['id'])
   @library = Library.find_by_id(params['library_id'])
+  @libraries = Library.all
 
   if @book.update_attributes(title: params['title'], 
-                               author: params['author'],
-                               isbn: @isbn)
+                             author: params['author'],
+                             isbn: @isbn)
     redirect to("/books/#{@book.id}")
-  else
-    erb :books_edit
+    else
+    	erb :books_edit
   end
 end
 
@@ -84,7 +83,7 @@ post '/libraries' do
   # create library object
   @livrary = Library.new(params)
 
-  if @livrary.save
+  if @library.save
     redirect to('/libraries')
   else
     erb :libraries_new
