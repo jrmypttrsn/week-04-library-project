@@ -105,7 +105,6 @@ get '/libraries/:id/edit' do
 end
 
 post '/libraries/:id' do
-  binding.pry
   @library = Library.find_by_id(params['id'])
 
   if @library.update_attributes(branch_name: params['branch_name'], 
