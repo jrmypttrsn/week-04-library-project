@@ -57,10 +57,61 @@ post '/books/:id' do
 
   if @book.update_attributes(title: params['title'], 
                                author: params['author'],
-                               ISBN: @isbn)
+                               isbn: @isbn)
     redirect to("/books/#{@book.id}")
   else
     erb :books_edit
   end
 end
 
+####################################### LIBRARIES #######################################
+
+# Index
+get '/libraries' do
+  @libraries = Library.all
+  erb :libraries_index
+end
+
+# New
+get '/libraries/new' do
+  @library = Library.new
+  erb :libraries_new
+end
+
+# Create
+post '/libraries' do
+  # create livrary object
+  @livrary = Library.new(params)
+
+  if @livrary.save
+    redirect to('/libraries')
+  else
+    erb :libraries_new
+  end
+end
+
+# Show
+get '/libraries/:id' do
+  @library = Library.find_by_id(params['id']) # nil or Library object
+  erb :libraries_show
+end
+
+# Edit
+
+get '/libraries/:id/edit' do
+  @library = Library.find_by_id(params['id'])
+  erb :libraries_edit
+end
+
+post '/libraries/:id' do
+  binding.pry
+  @library = Library.find_by_id(params['id'])
+
+  if @library.update_attributes(branch: params['branch'], 
+                               address: params['address'],
+                               phone_number: params['phone_number']
+    redirect to("/libraries/#{@library.id}")
+  else
+    erb :libraries_edit
+  end
+end
