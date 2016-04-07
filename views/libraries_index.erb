@@ -2,7 +2,7 @@
 
 <ol>
   <% @libraries.each do |library| %>
-    <li><a href="/libraries/<%= library.id %>"><%= library.branch %><%= library.address %><%= library.phone_number %></a></li>
+    <li><a href="/libraries/<%= library.id %>"><%= library.branch_name %><%= library.phone_number %><%= library.address %></a></li>
   <% end %>
 </ol>
 

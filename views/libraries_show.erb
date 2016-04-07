@@ -1,9 +1,9 @@
 
 <% if @library %>
-  <h1><%= @library.branch %></h1>
+  <h1><%= @library.branch_name %></h1>
 
-  <p><em>Address:</em> <%= @library.address %></p>
   <p><em>Phone Number:</em> <%= @library.phone_number %></p>
+  <p><em>Address:</em> <%= @library.address %></p>
   <p><a href="/libraries/<%= @library.id %>/edit">Edit</a></p>
 <% else %>
   <p>No library of that ID exists</p>
