@@ -3,7 +3,7 @@
 <form action="/books/<%= @book.id %>" method="post">
   Title:<input type="text" name="title" value="<%= @book.title %>"></br>
   Author:<input type="text", name="author" value="<%= @book.author %>"></br>
-  ISBN:<input type="text", name="isbn", value="<% @book.isbn %>"></br>
+  ISBN:<input type="text", name="isbn", value="<%= @book.isbn %>"></br>
   <select name="library_id">
     <option>No Library</option>
     <% @libraries.each do |library| %>
