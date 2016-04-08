@@ -7,6 +7,15 @@ require_relative "lib/book.rb"
 require_relative "lib/library.rb"
 require_relative "lib/patron.rb"
 require_relative "lib/staff_member.rb"
+######################################### HOME #########################################
+
+# Home Page
+
+get '/'do
+  erb :home_page
+end
+
+
 
 
 ######################################### BOOKS #########################################
