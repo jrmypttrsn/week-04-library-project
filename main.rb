@@ -125,6 +125,14 @@ post '/libraries/:id' do
   end
 end
 
+# Library Staff Members
+
+get '/libraries/:id/staff-members' do
+  @library = Library.find_by_id(params['id'])
+  @staff_members = StaffMember.where(library_id: params['id'])
+  erb :library_staff_members
+end
+
 ##################################### STAFF MEMBERS #####################################
 
 # Index
