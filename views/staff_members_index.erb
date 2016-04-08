@@ -1,0 +1,9 @@
+<h1>Staff Members Index</h1>
+
+<ol>
+  <% @staff_members.each do |staff_member| %>
+    <li><a href="/staff-members/<%= staff_member.id %>"><%= staff_member.name %></a></li>
+  <% end %>
+</ol>
+
+<p><a href="/staff-members/new">New Staff Member</a></p>

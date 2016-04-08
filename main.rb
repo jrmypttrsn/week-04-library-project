@@ -126,6 +126,8 @@ end
 # New
 get '/staff-members/new' do
   @staff_member = StaffMember.new
+  @libraries = Library.all
+
   erb :staff_members_new
 end
 
@@ -151,11 +153,15 @@ end
 
 get '/staff-members/:id/edit' do
   @staff_member = StaffMember.find_by_id(params['id'])
+  @libraries = Library.all
+
   erb :staff_members_edit
 end
 
 post '/staff-members/:id' do
   @staff_member = StaffMember.find_by_id(params['id'])
+  @library = Library.find_by_id(params['library_id'])
+  @libraries = Library.all
 
   if @staff_member.update_attributes(name: params['name'], 
                                email: params['email'])

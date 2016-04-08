@@ -1,0 +1,23 @@
+<% if @staff_member.errors.any? %>
+  <% @staff_member.errors.full_messages.each do |m| %>
+    <p>Error: <%= m %></p>
+  <% end %>
+<% end %>
+
+<h1>New Staff Member</h1>
+
+<form action="/staff-members" method="post">
+  Name:<input type="text" name="name"></br>
+  Email:<input type="text", name="email"></br>
+
+  <select name="library_id">
+    <option>No Library</option>
+    <% @libraries.each do |library| %>
+      <option value="<%= library.id %>">
+        <%= library.branch_name %>
+      </option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="New Staff Member!">
+</form>
