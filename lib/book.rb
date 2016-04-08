@@ -8,4 +8,8 @@ class Book < ActiveRecord::Base
   belongs_to :library
   belongs_to :patron
 
+  def to_s
+  	title
+  end
+
 end
