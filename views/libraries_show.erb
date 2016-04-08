@@ -5,6 +5,7 @@
   <p><em>Phone Number:</em> <%= @library.phone_number %></p>
   <p><em>Address:</em> <%= @library.address %></p>
   <p><a href="/libraries/<%= @library.id %>/staff-members">View Staff Members</a></p>
+  <p><a href="/libraries/<%= @library.id %>/books">View Books</a></p>
   <p><a href="/libraries/<%= @library.id %>/edit">Edit</a></p>
 <% else %>
   <p>No library of that ID exists</p>

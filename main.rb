@@ -133,6 +133,14 @@ get '/libraries/:id/staff-members' do
   erb :library_staff_members
 end
 
+# Library books
+
+get '/libraries/:id/books' do
+  @library = Library.find_by_id(params['id'])
+  @books = Book.where(library_id: params['id'])
+  erb :library_books
+end
+
 ##################################### STAFF MEMBERS #####################################
 
 # Index
