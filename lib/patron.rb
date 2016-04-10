@@ -10,4 +10,16 @@ class Patron < ActiveRecord::Base
   	name
   end
 
+  def books_display
+     books = Book.find_by_id(params['id'])
+     string = ""
+     if books.empty?
+       string = "None"
+     else
+       books.each do |b|
+         string += "#{b.title}\n       "
+       end
+     end
+     string
+   end
 end

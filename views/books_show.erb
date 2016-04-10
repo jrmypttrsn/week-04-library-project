@@ -1,13 +1,15 @@
 <% if @book %>
   <h1><%= @book.title %></h1>
 
-  <p><em>Author:</em> <%= @book.author %></p>
-  <p><em>ISBN:</em> <%= @book.isbn %></p>
-  <p><em>Library:</em> <%= @book.library ? @book.library : "No Library" %></p>
-  <p><a href="/books/<%= @book.id %>/edit">Edit</a></p>
+  <p><em>Author:</em> &nbsp;&nbsp;&nbsp;&nbsp; <%= @book.author %></p>
+  <p><em>ISBN:</em> &nbsp;&nbsp;&nbsp;&nbsp; <%= @book.isbn %></p>
+  <p><em>Library:</em> &nbsp;&nbsp;&nbsp;&nbsp; <%= @book.library ? @book.library : "No Library" %></p>
+  <p><em>Availability:</em> &nbsp;&nbsp;&nbsp;&nbsp; <%= @book.patron_id.nil? ? " ✓ &nbsp;&nbsp;&nbsp;&nbsp; Available" : "✖︎ &nbsp;&nbsp;&nbsp;&nbsp; Checked out by #{book.patron.name}" %></p>
 <% else %>
   <p>No book of that ID exists</p>
 <% end %>
 
-
-<p><a href="/books">Back to All Books</a></p>
+<p><a href="/book/<%= @book.id %>/<%= @book.patron_id.nil? ? 'Check Out' : 'Check In' %>">
+		<%= @book.patron_id.nil? ? 'Check Book Out' : 'Check Book In' %></a></p>
+<p class="text-center"><a href="/books/<%= @book.id %>/edit">Edit</a></p>
+<p class="text-center"><a href="/books">Back to All Books</a></p>

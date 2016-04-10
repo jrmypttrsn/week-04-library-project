@@ -1,11 +1,10 @@
-<% if @patron %>
-  <h1><%= @patron.name %></h1>
+<h1><%= @patron.name %></h1>
 
-  <p><em>Email:</em> <%= @patron.email %></p>
-  <p><a href="/patrons/<%= @patron.id %>/edit">Edit</a></p>
-<% else %>
-  <p>No patron of that ID exists</p>
-<% end %>
+<p><em>Email:</em> <%= @patron.email %></p>
+<p><em>Books:</em> <%= @patron.books_display %></p>
+<%if @patron.books_display != "None"%>
+  <p><a href="/patrons/<%= @patron.id %>/checkin">Return a Book</a></p>
+<%end%>
 
-
+<p><a href="/patrons/<%= @patron.id %>/edit">Edit</a></p>
 <p><a href="/patrons">Back to All Patrons</a></p>
