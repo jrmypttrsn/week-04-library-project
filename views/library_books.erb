@@ -1,9 +1,11 @@
-<h1><%= @library.branch_name%> Books</h1>
+<div class="h-center">
+	<h1><%= @library.branch_name%> Books</h1>
 
-<ul>
-  <% @books.each do |book| %>
-    <li><a href="/books/<%=book.id%>"><%=book.title%></li>
-  <% end %>
-</ul>
+	<ul>
+	  <% @books.each do |book| %>
+	    <li><a href="/books/<%=book.id%>"><%=book.title%></li>
+	  <% end %>
+	</ul>
 
-<p><a href="/libraries/<%=@library.id%>">Back to <%=@library.branch_name%></a></p>
+	<p><a href="/libraries/<%=@library.id%>">Back to <%=@library.branch_name%></a></p>
+</div>
