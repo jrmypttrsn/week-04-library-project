@@ -18,6 +18,11 @@ h3 { letter-spacing: 2px; }
     }
 }
 
+ul
+{
+    list-style-type: none;
+}
+
 a {
     color:#f44d3c;
 }

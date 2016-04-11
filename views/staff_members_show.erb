@@ -1,12 +1,14 @@
-<% if @staff_member %>
-  <h1><%= @staff_member.name %></h1>
+<div class="col-md-12 col-md">
+	<% if @staff_member %>
+	  <h1 class="text-center"><%= @staff_member.name %></h1>
 
-  <p><em>Email:</em> <%= @staff_member.email %></p>
-  <p><em>Library:</em> <%= @staff_member.library ? @staff_member.library : "No Library" %></p>
-  <p><a href="/staff-members/<%= @staff_member.id %>/edit">Edit</a></p>
-<% else %>
-  <p>No staff member of that ID exists</p>
-<% end %>
+	  <p class="text-center"><em>Email:</em> <%= @staff_member.email %></p>
+	  <p class="text-center"><em>Library:</em> <%= @staff_member.library ? @staff_member.library : "No Library" %></p>
+	  <p class="text-center"><a href="/staff-members/<%= @staff_member.id %>/edit">Edit</a></p>
+	<% else %>
+	  <p class="text-center">No staff member of that ID exists</p>
+	<% end %>
 
 
-<p><a href="/staff-members">Back to All Staff Members</a></p>
+	<p class="text-center"><a href="/staff-members">Back to All Staff Members</a></p>
+</div>

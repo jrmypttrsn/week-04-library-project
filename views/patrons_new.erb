@@ -1,14 +1,26 @@
-<% if @patron.errors.any? %>
-  <% @patron.errors.full_messages.each do |m| %>
-    <p>Error: <%= m %></p>
-  <% end %>
-<% end %>
+<div class="container v-center">
+  <div class="col-md-12 col-md">
+		<% if @patron.errors.any? %>
+		  <% @patron.errors.full_messages.each do |m| %>
+		    <p>Error: <%= m %></p>
+		  <% end %>
+		<% end %>
 
-<h1>New Patron</h1>
-
-<form action="/patrons" method="post">
-  Name:<input type="text" name="name"></br>
-  Email:<input type="text", name="email"></br>
-
-  <input type="submit" value="New Patron!">
-</form>
+		<h1>New Patron</h1>
+		<div class="col-md-8">
+      <div class="row form-group">
+				<form action="/patrons" method="post">
+				  <div class="col-sm-5">
+				  	Name:<input class="form-control" type="text" name="name">
+				  </div>
+				  <div class="col-sm-5">
+				  	Email:<input class="form-control" type="text", name="email">
+					</div>
+				  <div class="col-sm-3">
+					  <button class="btn btn-default btn-sm">New Patron!</button>
+					</div>			
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

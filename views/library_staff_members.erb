@@ -1,9 +1,9 @@
-<h1><%= @library.branch_name%> Staff Members</h1>
+<h1 class="text-center"><%= @library.branch_name%> Staff Members</h1>
 
-<ul>
+<ul class="text-center">
   <% @staff_members.each do |staff_member| %>
     <li><a href="/staff-members/<%=staff_member.id%>"><%=staff_member.name%></li>
   <% end %>
 </ul>
 
-<p><a href="/libraries/<%=@library.id%>">Back to <%=@library.branch_name%></a></p>
+<p class="text-center"><a href="/libraries/<%=@library.id%>">Back to <%=@library.branch_name%></a></p>

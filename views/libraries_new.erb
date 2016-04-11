@@ -1,15 +1,28 @@
-<% if @library.errors.any? %>
-  <% @library.errors.full_messages.each do |m| %>
-    <p>Error: <%= m %></p>
-  <% end %>
-<% end %>
+<div class="container v-center">
+  <div class="col-md-12 col-md">
+		<% if @library.errors.any? %>
+		  <% @library.errors.full_messages.each do |m| %>
+		    <p>Error: <%= m %></p>
+		  <% end %>
+		<% end %>
 
-<h1>New Library</h1>
-
-<form action="/libraries" method="post">
-  Branch Name:<input type="text" name="branch_name"></br>
-  Phone Number:<input type="text", name="phone_number"></br>
-  Address:<input type="text", name="address"></br>
-
-  <input type="submit" value="New Library!">
-</form>
+		<h1>New Library</h1>
+		<div class="col-md-8">
+      <div class="row form-group">
+				<form action="/libraries" method="post">
+				  <div class="col-sm-5">
+				  	Branch Name:<input class="form-control" type="text" name="branch_name"></br>
+				  </div>
+					<div class="col-sm-5">
+				  	Phone Number:<input class="form-control" type="text", name="phone_number"></br>
+				  </div>
+					<div class="col-sm-5">
+				  	Address:<input class="form-control" type="text", name="address"></br>
+					</div>
+				  <div class="col-sm-3">
+					  <button class="btn btn-default btn-sm">New Library!</button>
+					</div>	
+				</form>
+			</div>
+	</div>
+</div>

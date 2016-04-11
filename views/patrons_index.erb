@@ -1,9 +1,13 @@
-<h1>Patrons Index</h1>
+<div class="col-md-12 col-md">	
+	<h1 class="text-center">PATRONS</h1>
 
-<ol>
-  <% @patrons.each do |patron| %>
-    <li><a href="/patrons/<%= patron.id %>"><%= patron.name %></a></li>
-  <% end %>
-</ol>
+	<ul class="text-center">
+	  <% @patrons.each do |patron| %>
+	    <li><a href="/patrons/<%= patron.id %>"><%= patron.name %></a></li>
+	  <% end %>
+	</ul>
 
-<p><a href="/patrons/new">New Patron</a></p>
+	<ul class="text-center">
+		<li><a href="/patrons/new">NEW PATRON</a></li>
+	</ul>
+</div>

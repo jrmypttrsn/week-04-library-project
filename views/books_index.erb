@@ -1,9 +1,11 @@
-<h1>Dead Guy Library System&trade; Catalogue</h1>
+<div class="col-md-12 col-md">
+	<h1 class="text-center">DEAD GUY LIBRARY SYSTEM&trade; CATALOGUE</h1>
 
-<ol>
-  <% @books.each do |book| %>
-    <li><a href="/books/<%= book.id %>"><%= book.title %></a> <%= book.author %></li>
-  <% end %>
-</ol>
+	<ul class="text-center">
+	  <% @books.each do |book| %>
+	    <li><a href="/books/<%= book.id %>"><%= book.title %></a> <%= book.author %></li>
+	  <% end %>
+	</ul>
 
-<p><a href="/books/new">Add a New Book</a></p>
+	<p class="text-center"><a href="/books/new">ADD A NEW BOOK</a></p>
+</div>

@@ -1,0 +1,25 @@
+<% if @patron.errors.any? %>
+  <% @patron.errors.full_messages.each do |m| %>
+    <p> Error: <%=m%></p>
+  <%end%>
+<%end%>
+
+<% if @patron %>
+  <h1 class="text-center"><%= @patron.name %></h1>
+
+  <p class="text-center"><em>Email:</em> <%= @patron.email %></p>
+  <p class="text-center"><em>Books:</em> <%= @patron.books_display %></p>
+<% else %>
+  <p class="text-center">No patron of that ID exists</p>
+<% end %>
+
+<form action='/patrons/<%=@patron.id%>/checkin' method="post">
+  Book to Return: <select name="book_id">
+    <% @books.each do |b| %>
+      <option value="<%=book.id%>"><%=book.title%></option>
+    <% end %></br>
+  <input type="submit" value="Return Book">
+</form>
+
+<p class="text-center"><a href="/patrons/<%= @patron.id %>/edit">Edit</a></p>
+<p class="text-center"><a href="/patrons">Back to All Patrons</a></p>

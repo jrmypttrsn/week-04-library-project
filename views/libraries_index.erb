@@ -1,9 +1,11 @@
-<h1>Libraries Index</h1>
+<div class="col-md-12 col-md">
+	<h1 class="text-center">LIBRARIES</h1>
 
-<ol>
-  <% @libraries.each do |library| %>
-    <li><a href="/libraries/<%= library.id %>"><%= library.branch_name %></a></li>
-  <% end %>
-</ol>
+	<ul class="text-center">
+	  <% @libraries.each do |library| %>
+	    <li><a href="/libraries/<%= library.id %>"><%= library.branch_name %></a></li>
+	  <% end %>
+	</ul>
 
-<p><a href="/libraries/new">Add a New Library</a></p>
+	<p class="text-center"><a href="/libraries/new">ADD A NEW LIBRARY</a></p>
+</div>

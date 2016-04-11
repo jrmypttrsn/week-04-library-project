@@ -1,24 +1,36 @@
-<% if @book.errors.any? %>
-  <% @book.errors.full_messages.each do |m| %>
-    <p>Error: <%= m %></p>
-  <% end %>
-<% end %>
-
-<h1>New Book</h1>
-
-<form action="/books" method="post">
-  Title:<input type="text" name="title"></br>
-  Author:<input type="text", name="author"></br>
-  ISBN:<input type="text", name="isbn"></br>
-
-  <select name="library_id">
-    <option>No Library</option>
-    <% @libraries.each do |library| %>
-      <option value="<%= library.id %>">
-        <%= library.branch_name %>
-      </option>
+<div class="container v-center">
+  <div class="col-md-12 col-md">
+    <% if @book.errors.any? %>
+      <% @book.errors.full_messages.each do |m| %>
+        <p>Error: <%= m %></p>
+      <% end %>
     <% end %>
-  </select>
-  
-  <input type="submit" value="New Book!">
-</form>
+
+    <h1>New Book</h1>
+
+    <form action="/books" method="post">
+      <div class="col-sm-5">
+        Title:<input class="form-control" type="text" name="title"></br>
+      </div>
+      <div class="col-sm-5">
+        Author:<input class="form-control" type="text", name="author"></br>
+      </div>
+      <div class="col-sm-5">
+        ISBN:<input class="form-control" type="text", name="isbn"></br>
+      </div>
+      <div class="col-sm-7">  
+        <select name="library_id">
+          <option>No Library</option>
+          <% @libraries.each do |library| %>
+            <option value="<%= library.id %>">
+              <%= library.branch_name %>
+            </option>
+          <% end %>
+        </select>
+      </div>
+      <div class="col-sm-3">
+        <button class="btn btn-default btn-sm">New Book!</button>
+      </div>  
+    </form>
+  </div>
+</div>

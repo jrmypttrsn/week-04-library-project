@@ -74,6 +74,12 @@ post '/books/:id' do
   end
 end
 
+# Book check out
+
+get '/books/:id/check-out' do
+
+end
+
 ####################################### LIBRARIES #######################################
 
 # Index
@@ -238,6 +244,7 @@ end
 
 post '/patrons/:id' do
   @patron = Patron.find_by_id(params['id'])
+  @book = Book.find_by_id(params['id'])
 
   if @patron.update_attributes(name: params['name'], 
                                email: params['email'])
@@ -246,5 +253,4 @@ post '/patrons/:id' do
     erb :patrons_edit
   end
 end
-
 
