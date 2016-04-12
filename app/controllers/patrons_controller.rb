@@ -3,13 +3,13 @@
 # Index
 get '/patrons' do
   @patrons = Patron.all
-  erb :patrons_index
+  erb :"patrons/index"
 end
 
 # New
 get '/patrons/new' do
   @patron = Patron.new
-  erb :patrons_new
+  erb :"patrons/new"
 end
 
 # Create
@@ -20,21 +20,21 @@ post '/patrons' do
   if @patron.save
     redirect to('/patrons')
   else
-    erb :patrons_new
+    erb :"patrons/new"
   end
 end
 
 # Show
 get '/patrons/:id' do
   @patron = Patron.find_by_id(params['id']) # nil or Patron object
-  erb :patrons_show
+  erb :"patrons/show"
 end
 
 # Edit
 
 get '/patrons/:id/edit' do
   @patron = Patron.find_by_id(params['id'])
-  erb :patrons_edit
+  erb :"patrons/edit"
 end
 
 post '/patrons/:id' do
@@ -45,6 +45,6 @@ post '/patrons/:id' do
                                email: params['email'])
     redirect to("/patrons/#{@patron.id}")
   else
-    erb :patrons_edit
+    erb :"patrons/edit"
   end
 end

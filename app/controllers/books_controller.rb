@@ -3,14 +3,14 @@
 # Index
 get '/books' do
   @books = Book.all
-  erb :books_index
+  erb :"books/index"
 end
 
 # New
 get '/books/new' do
   @book = Book.new
   @libraries = Library.all
-  erb :books_new
+  erb :"books/new"
 end
 
 # Create
@@ -21,14 +21,14 @@ post '/books' do
   if @book.save
     redirect to('/books')
   else
-    erb :books_new
+    erb :"books/new"
   end
 end
 
 # Show
 get '/books/:id' do
   @book = Book.find_by_id(params['id']) # nil or Book object
-  erb :books_show
+  erb :"books/show"
 end
 
 # Edit
@@ -36,7 +36,7 @@ end
 get '/books/:id/edit' do
   @book = Book.find_by_id(params['id'])
   @libraries = Library.all
-  erb :books_edit
+  erb :"books/edit"
 end
 
 post '/books/:id' do
@@ -50,7 +50,7 @@ post '/books/:id' do
                              library: @library)
     redirect to("/books/#{@book.id}")
     else
-    	erb :books_edit
+    	erb :"books/edit"
   end
 end
 

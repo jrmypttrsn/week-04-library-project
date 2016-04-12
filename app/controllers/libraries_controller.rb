@@ -3,13 +3,13 @@
 # Index
 get '/libraries' do
   @libraries = Library.all
-  erb :libraries_index
+  erb :"libraries/index"
 end
 
 # New
 get '/libraries/new' do
   @library = Library.new
-  erb :libraries_new
+  erb :"libraries/new"
 end
 
 # Create
@@ -20,21 +20,21 @@ post '/libraries' do
   if @library.save
     redirect to('/libraries')
   else
-    erb :libraries_new
+    erb :"libraries/new"
   end
 end
 
 # Show
 get '/libraries/:id' do
   @library = Library.find_by_id(params['id']) # nil or Library object
-  erb :libraries_show
+  erb :"libraries/show"
 end
 
 # Edit
 
 get '/libraries/:id/edit' do
   @library = Library.find_by_id(params['id'])
-  erb :libraries_edit
+  erb :"libraries/edit"
 end
 
 post '/libraries/:id' do
@@ -45,7 +45,7 @@ post '/libraries/:id' do
                                address: params['address'])
     redirect to("/libraries/#{@library.id}")
   else
-    erb :libraries_edit
+    erb :"libraries/edit"
   end
 end
 
@@ -54,7 +54,7 @@ end
 get '/libraries/:id/staff-members' do
   @library = Library.find_by_id(params['id'])
   @staff_members = StaffMember.where(library_id: params['id'])
-  erb :library_staff_members
+  erb :"library/staff_members"
 end
 
 # Library books
@@ -62,5 +62,5 @@ end
 get '/libraries/:id/books' do
   @library = Library.find_by_id(params['id'])
   @books = Book.where(library_id: params['id'])
-  erb :library_books
+  erb :"library/books"
 end
